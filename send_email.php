@@ -13,12 +13,12 @@ function sendConfirmationEmail($to, $name) {
         $mail->isSMTP();
         $mail->Host       = 'smtp.hostinger.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'admin@reansolar.com';
-        $mail->Password   = 'ReanSolar100%';
+        $mail->Username   = '';
+        $mail->Password   = '%';
         $mail->SMTPSecure = 'ssl';
         $mail->Port       = 465;
 
-        $mail->setFrom('admin@reansolar.com', 'REAN Solar Limited');
+        $mail->setFrom('', '');
         $mail->addAddress($to, $name);
 
         $mail->isHTML(true);
@@ -40,8 +40,8 @@ function notifyAdmin($name, $email, $phone, $interest_area, $location) {
         $mail->isSMTP();
         $mail->Host       = 'smtp.hostinger.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'admin@reansolar.com';
-        $mail->Password   = 'ReanSolar100%';
+        $mail->Username   = '';
+        $mail->Password   = '';
         $mail->SMTPSecure = 'ssl';
         $mail->Port       = 465;
 
