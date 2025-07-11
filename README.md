@@ -1,90 +1,114 @@
-```markdown
-# ⚡ REAN Solar Connect — Bridging Nigeria's Solar Ecosystem
+````markdown
+# ☀️ REAN Solar Connect
 
-> Live site: [reansolar.com](https://reansolar.com)
+**🌐 Live Site:** [https://reansolar.com](https://reansolar.com)
 
-REAN Solar Limited is building a digital bridge between **solar manufacturers**, **distributors**, **recyclers**, and **end users** across Nigeria. This platform is designed to solve the solar supply gap by connecting the right stakeholders using **location-aware technology** and **direct communication tools**.
-
----
-
-## 🌞 Why This Project Matters
-
-- 🇳🇬 Focused on the Nigerian energy landscape
-- 🧭 Empowers local solar businesses and consumers
-- 🔗 Promotes circular energy economy (recycling + sustainability)
-- 🛠️ Tech-driven match-making between buyers and providers
+REAN Solar Connect is a web-based solution designed to bridge the solar energy supply gap in Nigeria. It connects manufacturers, distributors, recyclers, and end users — helping people and businesses locate verified solar partners near them with ease.
 
 ---
 
-## ✨ Features
+## 🚀 Features
 
-- ✅ Responsive Tailwind CSS UI
-- ✅ Waitlist modal with live form validation
-- ✅ MySQL database integration (user submissions stored securely)
-- ✅ Duplicate email prevention
-- ✅ PHPMailer email notifications (User + Admin)
-- ✅ Optimized for deployment on **Hostinger**
-- ✅ Fully working on **[reansolar.com](https://reansolar.com)**
+- 🌍 **Location-Based Matching** — Find solar manufacturers, distributors, and recyclers in your area.
+- 📝 **Waitlist Form** — Collects signups and stores them in a secure database.
+- 📬 **Email Notifications** — Sends confirmation emails to subscribers and alerts the admin.
+- 📱 **Mobile-First Design** — Fully responsive and touch-friendly.
+- 🎨 **Modern UI** — Built using Tailwind CSS and Font Awesome with custom animations.
+- 🔐 **Duplicate Protection** — Prevents repeat signups using email uniqueness checks.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** HTML, Tailwind CSS, Alpine.js, Font Awesome
-- **Backend:** PHP 8.x
-- **Database:** MySQL (via Hostinger’s phpMyAdmin)
-- **Email:** PHPMailer (SMTP via Hostinger)
-- **Deployment:** Hostinger + GitHub
+| Layer        | Tools & Tech                            |
+|--------------|------------------------------------------|
+| Frontend     | HTML5, Tailwind CSS, Font Awesome        |
+| Backend      | PHP (Vanilla)                            |
+| Database     | MySQL                                    |
+| Email        | PHPMailer with SMTP (Hostinger)          |
+| Deployment   | Hostinger + GitHub                       |
 
 ---
 
-## 📁 Folder Structure
+## 📸 Screenshots
 
+<!-- Add actual image if available -->
+![Screenshot Preview](https://reansolar.com/assets/img/screenshot.jpg)
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Oyedokun-Kehinde/rean-solar.git
+cd rean-solar
+````
+
+### 2. Set Up the Database
+
+* Create a new MySQL database.
+* Import the `users` table using the SQL command:
+
+```sql
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  phone VARCHAR(20),
+  interest_area VARCHAR(50),
+  location VARCHAR(100),
+  agree TINYINT(1) DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 ```
 
-/rean-solar/
-├── assets/
-│   ├── img/
-│   └── css/
-├── php/
-│   ├── db.php
-│   ├── submit\_waitlist.php
-│   └── send\_email.php
-├── phpmailer/
-├── index.html
-├── README.md
-└── ...
+### 3. Configure Email Sending
 
+* Upload the full `phpmailer/` folder (from PHPMailer source).
+* Update `send_email.php` with your actual SMTP credentials from Hostinger:
+
+```php
+$mail->Host       = 'smtp.hostinger.com';
+$mail->Username   = 'admin@reansolar.com';
+$mail->Password   = 'your-password';
 ```
 
----
-
-## 🚧 What’s Coming Next?
-
-- [ ] Role-based dashboards for manufacturers, sellers, consumers
-- [ ] Real-time location-based search for solar products
-- [ ] Profile verification & ratings
-- [ ] Recyclers directory + incentives
-- [ ] Full PWA support
+> **Note:** Port `587` with `'tls'` encryption is recommended.
 
 ---
 
-## 🙌 Credits
+## 🧪 Testing It Live
 
-Built with passion by [Decimal Technologies](mailto:decimaltechy@gmail.com).  
-Design, development, and deployment all done in-house 💪
+Once deployed:
+
+* Go to [https://reansolar.com](https://reansolar.com)
+* Click **"Join Waitlist"** and fill the popup form
+* The system will:
+
+  * Save user data to MySQL
+  * Check for duplicate emails
+  * Send confirmation and admin notification emails via PHPMailer
 
 ---
 
-## 📜 License
+## 🧠 Credits
 
-MIT License. Use it, remix it, make it better.
+Built with ❤️ by [Decimal Technologies](mailto:decimaltechy@gmail.com)
+
+> *Note: Not affiliated with the Renewable Energy Association of Nigeria (REAN)*
 
 ---
 
-> _“Let the sun shine where the grid won’t.” — REAN Solar Motto_
+## 🌟 Contribute
+
+Pull requests are welcome! Let’s build a cleaner, greener Nigeria — one solar panel at a time 🌞
+
+---
+
+## 📄 License
+
+MIT — Feel free to use, extend, or customize this project as you like.
+
 ```
-
----
-
-Want me to add dynamic badges or deploy a versioned changelog too? Let’s really dress it up if you want 😎
